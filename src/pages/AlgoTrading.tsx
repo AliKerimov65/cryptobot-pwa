@@ -39,7 +39,7 @@ export default function AlgoTrading() {
               className="inline-block"
             >
               {word}
-              {i < SUBTITLE.split(' ').length - 1 ? ' ' : ''}
+              {i < SUBTITLE.split(' ').length - 1 ? ' ' : ''}
             </motion.span>
           ))}
         </p>

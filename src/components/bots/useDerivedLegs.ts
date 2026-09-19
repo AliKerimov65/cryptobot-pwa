@@ -90,8 +90,8 @@ export function useDerivedLegs(journal: JournalEntry[], price: number): DerivedR
       const notional = list.reduce((s, l) => s + l.notional, 0);
       const avgEntry = list.reduce((s, l) => s + l.entry * l.notional, 0) / (notional || 1);
       let floatingGross = 0;
-      const dir = side === 'L' ? 1 : -1;
-      if (Number.isFinite(price)) {
+      if (Number.isFinite(price) && price > 0) {
+        const dir = side === 'L' ? 1 : -1;
         floatingGross = list.reduce(
           (s, l) => s + (price - l.entry) * (l.notional / l.entry) * dir,
           0,

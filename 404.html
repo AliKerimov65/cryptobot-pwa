@@ -17,8 +17,27 @@
       rel="stylesheet"
     />
     <title>CryptoBot — зеркало конвейера</title>
-    <script type="module" crossorigin src="/cryptobot-pwa/assets/index-CvbnABX7.js"></script>
-    <link rel="stylesheet" crossorigin href="/cryptobot-pwa/assets/index-D72oRGZx.css">
+    <script>
+/* gh-pages загрузчик: assets лежат частями gzip+base64 (обход текстового канала пуша) */
+(async () => {
+  try {
+    const m = await (await fetch('./assets/parts/manifest.json')).json();
+    const b2b = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+    const gun = async (b) => new Response(new Blob([b]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    const load = async (fs) => gun(b2b((await Promise.all(fs.map((f) => fetch('./' + f).then((r) => r.text())))).join('')));
+    const st = document.createElement('style');
+    st.textContent = await load(m.css);
+    document.head.appendChild(st);
+    await import(URL.createObjectURL(new Blob([await load(m.js)], { type: 'text/javascript' })));
+  } catch (e) {
+    const d = document.createElement('div');
+    d.style.cssText = 'color:#f87171;font:13px monospace;padding:24px';
+    d.textContent = 'Ошибка загрузки оболочки: ' + e;
+    document.body.appendChild(d);
+  }
+})();
+</script>
+    
   </head>
   <body>
     <div id="root"></div>

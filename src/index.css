@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Цветовые токены CryptoBot (design.md) — тема всегда тёмная */
+    --bg-app: #0B0E14;
+    --bg-card-from: #10131A;
+    --bg-card-to: #171B24;
+    --bg-card-solid: #12161F;
+    --bg-card-hover: #1A1F2B;
+    --border-subtle: #232A38;
+    --accent: #6D8DFF;
+    --long: #34D399;
+    --short: #F87171;
+    --warn: #FBBF24;
+    --alarm: #FB923C;
+    --text-primary: #E6EAF2;
+    --text-muted: #8B93A7;
+    --text-faint: #5A6378;
+    --grid-line: #1C2230;
+
+    /* shadcn-переменные (тёмная палитра по умолчанию) */
+    --background: 222 29% 6%;
+    --foreground: 220 24% 93%;
+    --card: 222 24% 9%;
+    --card-foreground: 220 24% 93%;
+    --popover: 222 24% 9%;
+    --popover-foreground: 220 24% 93%;
+    --primary: 224 100% 71%;
+    --primary-foreground: 222 29% 6%;
+    --secondary: 222 18% 14%;
+    --secondary-foreground: 220 24% 93%;
+    --muted: 222 18% 14%;
+    --muted-foreground: 220 12% 60%;
+    --accent-sh: 222 18% 14%;
+    --accent-foreground: 220 24% 93%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 220 24% 93%;
+    --border: 220 22% 18%;
+    --input: 220 22% 18%;
+    --ring: 224 100% 71%;
+    --radius: 0.625rem;
+    --sidebar-background: 222 24% 8%;
+    --sidebar-foreground: 220 24% 93%;
+    --sidebar-primary: 224 100% 71%;
+    --sidebar-primary-foreground: 222 29% 6%;
+    --sidebar-accent: 222 18% 14%;
+    --sidebar-accent-foreground: 220 24% 93%;
+    --sidebar-border: 220 22% 18%;
+    --sidebar-ring: 224 100% 71%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-appbg font-sans text-primary2 antialiased;
+    background-color: var(--bg-app);
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Шиммер для скелетонов (design.md) */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, #171b24 25%, #1e2534 50%, #171b24 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+  }
+
+  /* Пульс точки WS (только когда соединение живо) */
+  @keyframes ws-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.35);
+      opacity: 0.5;
+    }
+  }
+  .ws-pulse {
+    animation: ws-pulse 1.6s ease-in-out infinite;
+  }
+
+  /* Мягкая пульсация подложки активного чипа гейта */
+  @keyframes gate-pulse {
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.18;
+    }
+  }
+  .gate-pulse {
+    animation: gate-pulse 2s ease-in-out infinite;
+  }
+
+  /* Флэш-подсветка тикающих чисел */
+  @keyframes flash-up {
+    0% {
+      background-color: rgb(52 211 153 / 0.18);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+  @keyframes flash-down {
+    0% {
+      background-color: rgb(248 113 113 / 0.18);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+  .flash-up {
+    animation: flash-up 350ms ease-out;
+  }
+  .flash-down {
+    animation: flash-down 350ms ease-out;
+  }
+}

@@ -118,7 +118,6 @@ export default function Acta() {
     [eng.journal],
   );
 
-
   // Агрегаты за период: «сутки» и «7 дней» — из журнала + счётчиков движка
   const agg = useMemo(() => {
     if (period === 'all') {

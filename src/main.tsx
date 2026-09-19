@@ -4,7 +4,6 @@ import './index.css';
 import App from './App.tsx';
 import { EngineProvider } from '@/engine/EngineContext';
 
-// basename для GitHub Pages (base '/cryptobot-pwa/'); на платформе base './' -> undefined
 const base = import.meta.env.BASE_URL;
 const routerBasename = base.startsWith('/') ? base.replace(/\/+$/, '') : undefined;
 

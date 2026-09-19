@@ -1,0 +1,26 @@
+{
+  "name": "CryptoBot — зеркало конвейера",
+  "short_name": "CryptoBot",
+  "description": "PWA-зеркало paper-конвейера CryptoBot: живой Bybit WebSocket, симуляция торговли в браузере.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0B0E14",
+  "background_color": "#0B0E14",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

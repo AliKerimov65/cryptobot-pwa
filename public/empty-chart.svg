@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120" fill="none">
+  <!-- Минималистичный контур свечного графика пунктиром, пульсирующая точка в конце -->
+  <g stroke="#5A6378" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 5" opacity="0.9">
+    <!-- свеча 1 -->
+    <line x1="32" y1="52" x2="32" y2="88"/>
+    <rect x="26.5" y="60" width="11" height="20" rx="2"/>
+    <!-- свеча 2 -->
+    <line x1="64" y1="44" x2="64" y2="76"/>
+    <rect x="58.5" y="50" width="11" height="18" rx="2"/>
+    <!-- свеча 3 -->
+    <line x1="96" y1="58" x2="96" y2="94"/>
+    <rect x="90.5" y="64" width="11" height="22" rx="2"/>
+    <!-- свеча 4 -->
+    <line x1="128" y1="36" x2="128" y2="70"/>
+    <rect x="122.5" y="44" width="11" height="18" rx="2"/>
+    <!-- свеча 5 -->
+    <line x1="160" y1="30" x2="160" y2="60"/>
+    <rect x="154.5" y="36" width="11" height="16" rx="2"/>
+  </g>
+  <!-- линия тренда пунктиром к последней точке -->
+  <path d="M32 78 L64 62 L96 82 L128 56 L160 46 L196 38" stroke="#5A6378" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 6" fill="none"/>
+  <!-- пульсирующая точка в конце линии -->
+  <circle cx="196" cy="38" r="3.5" fill="#6D8DFF">
+    <animate attributeName="r" values="3.5;5.5;3.5" dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.45;1" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="196" cy="38" r="9" stroke="#6D8DFF" stroke-width="1" fill="none" opacity="0.35">
+    <animate attributeName="r" values="6;12;6" dur="1.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.35;0;0.35" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+</svg>
